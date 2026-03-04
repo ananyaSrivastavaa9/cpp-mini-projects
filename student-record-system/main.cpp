@@ -12,6 +12,8 @@ int main() {
     vector<Student> students;
     int choice;
 
+    cout << "Student Record System: " << endl;
+
     while (true) {
         cout << "\n1. Add Student";
         cout << "\n2. View Students";
@@ -31,7 +33,12 @@ int main() {
             students.push_back(s);
         }
         else if (choice == 2) {
-            cout << "\nStudent List : \n";
+            if (students.empty()) {
+                cout << "No student records available.\n";
+                continue;
+            }
+
+            cout << "\mStudent List: \n";
             for (auto &s : students) {
                 cout << "ID: " << s.id
                      << " Name: " << s.name
